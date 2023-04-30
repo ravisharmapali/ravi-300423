@@ -99,4 +99,32 @@ Body --> raw --> json
 response code : 201 created
 
 
+if try to enter user with mobile number already there:
+
+500Internal Server Error
+
+{
+    "message": "Unable to create Customer. Mobile number already present."
+}
+
+Note:
+-----
+ there was an exception while making a post request to create new customer: 
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Sequence "CUSTOMER_SEQ" not found; SQL statement:
+select next value for customer_seq [90036-214]
+ 
+ so I tried to resolve it by executing this query: 
+ CREATE SEQUENCE IF NOT EXISTS CUSTOMER_SEQ START WITH 5 INCREMENT BY 1;
+ 
+
+USER STORY :5
+==============
+method :DELETE
+http://localhost:8080/api/v1/customers/9111111114
+
+
+response code : 200 ok
+{
+    "message": "Customer deleted successfully"
+}
 

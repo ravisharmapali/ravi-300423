@@ -45,13 +45,13 @@ public class CustomerServicesImpl implements ICustomerServices {
 		return searchByLastName;
 	}
 
-	//
-	
+	// service method to create a new customer
+
 	@Override
 	public Customer createNewCustomer(Customer customer) {
 
 		System.out.println("inside service method");
-	
+
 		Optional<Customer> existingCustomer = customerRepo.findByMobileNumber(customer.getMobileNumber());
 		if (existingCustomer.isPresent()) {
 			return null;
@@ -64,6 +64,13 @@ public class CustomerServicesImpl implements ICustomerServices {
 
 	}
 
+	// service method to delete customer
 	
+	@Override
+	public void deleteCustomer(String mobile) {
+
+		Customer cust = this.customerRepo.findByMobileNumber(mobile).get(); // .orElseThrow(()->new
+		this.customerRepo.delete(cust);
+	}
 
 }

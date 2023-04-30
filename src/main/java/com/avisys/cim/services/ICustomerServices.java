@@ -16,4 +16,8 @@ public interface ICustomerServices {
 	
 	// to create new customer 
 	Customer createNewCustomer(Customer customer);
+	
+	// 	to delete customer	
+	void deleteCustomer(String mobile);
+
 }
