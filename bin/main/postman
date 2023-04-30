@@ -1,0 +1,102 @@
+// postman response
+
+get_all_customers:
+req type:GET
+url: http://localhost:8080/api/v1/customers/
+response: 200 OK
+[
+    {
+        "id": 1,
+        "firstName": "Alan",
+        "lastName": "Smith",
+        "mobileNumber": "9111111111"
+    },
+    {
+        "id": 2,
+        "firstName": "Joe",
+        "lastName": "Turing",
+        "mobileNumber": "9111111112"
+    },
+    {
+        "id": 3,
+        "firstName": "John",
+        "lastName": "Smith",
+        "mobileNumber": "9111111113"
+    },
+    {
+        "id": 4,
+        "firstName": "Kathy",
+        "lastName": "Sierra",
+        "mobileNumber": "9111111114"
+    },
+    {
+        "id": 1,
+        "firstName": "Alan",
+        "lastName": "Smith",
+        "mobileNumber": "9111111111"
+    }
+]
+
+
+get_customer_by_mobile
+-------------------------
+GET
+http://localhost:8080/api/v1/customers/search/9111111111
+ {
+        "id": 1,
+        "firstName": "Alan",
+        "lastName": "Smith",
+        "mobileNumber": "9111111111"
+    }
+    
+    
+get_by_firstName
+---------------
+response code : 200 ok
+
+http://localhost:8080/api/v1/customers/search/firstName/aTh
+
+[
+    {
+        "id": 4,
+        "firstName": "Kathy",
+        "lastName": "Sierra",
+        "mobileNumber": "9111111114"
+    }
+]    
+
+
+get_by_lastname
+---------------
+
+http://localhost:8080/api/v1/customers/search/lastName/Ring
+response code : 200 ok
+[
+    {
+        "id": 2,
+        "firstName": "Joe",
+        "lastName": "Turing",
+        "mobileNumber": "9111111112"
+    }
+]
+
+
+
+USER STORY : 2
+===============
+req : POST
+http://localhost:8080/api/v1/customers/
+
+Body --> raw --> json 
+
+{
+        
+        "firstName": "Ravi",
+        "lastName": "Sharma",
+        "mobileNumber": "917230017461"
+    }
+    
+response code : 201 created
+
+
+

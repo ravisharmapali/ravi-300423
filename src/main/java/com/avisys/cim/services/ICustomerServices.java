@@ -13,5 +13,7 @@ public interface ICustomerServices {
 	List<Customer> searchByFirstName(String keyword);
 
 	List<Customer> searchByLastName(String keyword);
-
+	
+	// to create new customer 
+	Customer createNewCustomer(Customer customer);
 }

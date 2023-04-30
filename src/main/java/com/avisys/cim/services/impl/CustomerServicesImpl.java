@@ -1,6 +1,7 @@
 package com.avisys.cim.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,4 +44,26 @@ public class CustomerServicesImpl implements ICustomerServices {
 		List<Customer> searchByLastName = customerRepo.searchByLastName(keyword);
 		return searchByLastName;
 	}
+
+	//
+	
+	@Override
+	public Customer createNewCustomer(Customer customer) {
+
+		System.out.println("inside service method");
+	
+		Optional<Customer> existingCustomer = customerRepo.findByMobileNumber(customer.getMobileNumber());
+		if (existingCustomer.isPresent()) {
+			return null;
+		} else {
+
+			Customer savedCustomer = customerRepo.save(customer);
+
+			return savedCustomer;
+		}
+
+	}
+
+	
+
 }
