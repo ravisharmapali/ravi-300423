@@ -73,4 +73,19 @@ public class CustomerServicesImpl implements ICustomerServices {
 		this.customerRepo.delete(cust);
 	}
 
+	// to update customer
+	@Override
+	public Customer updateCustomer(Customer customer,String mobile) {
+	
+		Customer customer2 = customerRepo.findByMobileNumber(mobile).get();
+		
+		customer2.setFirstName(customer.getFirstName());
+		customer2.setLastName(customer.getLastName());
+		customer2.setMobileNumber(customer.getMobileNumber());
+			
+		customerRepo.save(customer2);
+		return customer2;
+	}
+
+	
 }

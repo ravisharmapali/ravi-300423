@@ -128,3 +128,26 @@ response code : 200 ok
     "message": "Customer deleted successfully"
 }
 
+
+
+USER STORY :6
+=============
+method : PUT
+url : http://localhost:8080/api/v1/customers/9111111111
+
+JSON data in request body :
+    {
+        "firstName": "Hilag",
+        "lastName": "Smith",
+        "mobileNumber": "9111111111"
+    }
+
+response code : 200 ok
+with data :
+{
+    "id": 1,
+    "firstName": "Hilag",
+    "lastName": "Smith",
+    "mobileNumber": "91562258466"
+}
+

@@ -19,5 +19,9 @@ public interface ICustomerServices {
 	
 	// 	to delete customer	
 	void deleteCustomer(String mobile);
+	
+	// to update customer
+	Customer updateCustomer(Customer customer,String mobile);
+	
 
 }
